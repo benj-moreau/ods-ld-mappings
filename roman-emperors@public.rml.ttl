@@ -45,6 +45,7 @@
         [ rr:objectMap [ rml:reference "$.name" ] ;
             rr:predicate rdfs:label ] ;
     rr:subjectMap [ rr:class <http://dbpedia.org/ontology/RomanEmperor> ;
+            rr:class <http://xmlns.com/foaf/0.1/Person> ;
             rr:template "http://dbpedia.org/resource/{name}" ] .
 
 <#City> rml:logicalSource [ rml:iterator "$.[*].fields" ;
@@ -53,6 +54,7 @@
     rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.birth_cty" ] ;
             rr:predicate rdfs:label ] ;
     rr:subjectMap [ rr:class <http://purl.org/ontology/places#City> ;
+            rr:class <http://schema.org/Place> ;
             rr:template "http://dbpedia.org/resource/{birth_cty}" ] .
 
 <#Province> rml:logicalSource [ rml:iterator "$.[*].fields" ;
@@ -61,4 +63,5 @@
     rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.birth_prv" ] ;
             rr:predicate rdfs:label ] ;
     rr:subjectMap [ rr:class <http://purl.org/ontology/places#Province> ;
+            rr:class <http://schema.org/Place> ;
             rr:template "http://dbpedia.org/resource/{birth_prv}" ] .
