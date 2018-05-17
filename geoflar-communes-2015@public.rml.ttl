@@ -1,0 +1,45 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#Settlement-nom_com> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "geoflar-communes-2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.superficie" ;
+                    rr:datatype xsd:double ] ;
+            rr:predicate <http://dbpedia.org/ontology/area> ],
+        [ rr:objectMap [ rml:reference "$.statut" ] ;
+            rr:predicate <http://dbpedia.org/ontology/status> ],
+        [ rr:objectMap [ rml:reference "$.geo_shape" ] ;
+            rr:predicate <http://www.w3.org/2006/vcard/ns#geo> ],
+        [ rr:objectMap [ rml:reference "$.nom_com" ] ;
+            rr:predicate rdfs:label ],
+        [ rr:objectMap [ rml:reference "$.geo_point_2d" ] ;
+            rr:predicate <http://www.w3.org/2006/vcard/ns#geo> ],
+        [ rr:objectMap [ rml:reference "$.id_geofla" ] ;
+            rr:predicate <http://dbpedia.org/ontology/id> ],
+        [ rr:objectMap [ rml:reference "$.code_com" ] ;
+            rr:predicate <http://data.ign.fr/def/geofla#codeComm> ],
+        [ rr:objectMap [ rml:reference "$.insee_com" ] ;
+            rr:predicate <http://rdf.insee.fr/def/geo#codeCommune> ],
+        [ rr:objectMap [ rml:reference "$.population" ;
+                    rr:datatype xsd:int ] ;
+            rr:predicate <http://www.geonames.org/ontology#population> ] ;
+    rr:subjectMap [ rr:class <http://rdf.insee.fr/def/geo#Commune> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/geoflar-communes-2015@public/Commune/{nom_com}" ] .
+
+<#Settlement-nom_dept> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "geoflar-communes-2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.nom_dept" ] ;
+            rr:predicate rdfs:label ] ,
+        [ rr:objectMap [ rr:parentTriplesMap <#Settlement-nom_com> ] ;
+            rr:predicate <http://dbpedia.org/ontology/commune> ];
+    rr:subjectMap [ rr:class <http://data.ign.fr/def/geofla#Departement> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/geoflar-communes-2015@public/Departement/{nom_dept}" ] .
