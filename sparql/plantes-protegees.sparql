@@ -1,0 +1,83 @@
+http://client.linkeddatafragments.org/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen;http%3A%2F%2Fmydomain.ods.com%3A8000%2Fapi%2Ftpf%2Fespeces-protegees-et-reglementees-referentiel&query=PREFIX%20schema%3A%20%3Chttp%3A%2F%2Fschema.org%2F%3E%0APREFIX%20dbo%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0APREFIX%20dbr%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX%20wlo%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fontology%2Fwo%2F%3E%0APREFIX%20dcmi%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0APREFIX%20eli%3A%20%3Chttp%3A%2F%2Fdata.europa.eu%2Feli%2Fontology%23%3E%0A%0ASELECT%20%3Fcd_nom%20%3Fnom_cite%20%3FConservationStatus%20%3Fsyn_cite%20%3Fnom_francais_cite%20%3Fprecisions%20%3Fcd_nom_cite%20%3Fphoto%20WHERE%20%7B%0A%20%20%3Fs%20schema%3Aidentifier%20%3Fcd_nom%20.%0A%20%20%3Fs%20foaf%3Aname%20%3Fnom_cite%20.%0A%20%20%3Fs%20wlo%3AconservationStatus%20%3Fcs%20.%0A%20%20%3Fcs%20schema%3Aidentifier%20%3FConservationStatus%20.%0A%20%20OPTIONAL%20%7B%20%3Fs%20dbo%3Asynonym%20%3Fsyn_cite%20%7D%20.%0A%20%20OPTIONAL%20%7B%20%3Fs%20wlo%3AshortDescription%20%3Fprecisions%20%7D%20.%0A%20%20%3Fs%20schema%3Aidentifier%20%3Fcd_nom_cite%20.%0A%20%20%3Fs%20foaf%3Adepiction%20%3Fphoto%20.%0A%20%20%3Fs%20dbo%3Akingdom%20dbr%3APlant%0A%7D
+
+PREFIX schema: <http://schema.org/>
+PREFIX dbo: <http://dbpedia.org/ontology/>
+PREFIX dbr: <http://dbpedia.org/resource/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX wlo: <http://purl.org/ontology/wo/>
+PREFIX dcmi: <http://purl.org/dc/terms/>
+PREFIX eli: <http://data.europa.eu/eli/ontology#>
+
+#Retrieve all in esêces-protegees..-referentiel
+
+SELECT ?cd_nom ?nom_cite ?ConservationStatus ?syn_cite ?nom_francais_cite ?precisions ?cd_nom_cite WHERE {
+  ?s schema:identifier ?cd_nom .
+  ?s foaf:name ?nom_cite .
+  ?s wlo:conservationStatus ?cs .
+  ?cs schema:identifier ?ConservationStatus .
+  OPTIONAL { ?s dbo:synonym ?syn_cite } .
+  OPTIONAL { ?s wlo:shortDescription ?precisions } .
+  ?s schema:identifier ?cd_nom_cite
+}
+
+#Retrieve all in especes-protegees..
+
+SELECT ?cd_protection ?intitule ?article ?url_inpn ?date_arrete ?cd_doc ?arrete ?url ?type WHERE {
+  ?s schema:identifier ?cd_protection .
+  ?s wlo:threatDescription ?intitule .
+  OPTIONAL { ?s dcmi:isReferencedBy ?article }.
+  ?s wlo:populationTrend ?url_inpn .
+  ?s wlo:yearAssessed ?date_arrete .
+  ?s dbo:related ?LegalResource .
+  ?LegalResource eli:number ?cd_doc .
+  ?LegalResource eli:description ?arrete .
+  OPTIONAL { ?LegalResource schema:url ?url }.
+  ?s wlo:shortDescription ?type
+}
+
+
+#Retrieve plants with photo and name
+
+SELECT ?nom ?photo WHERE {
+  ?s foaf:name ?nom .
+  ?s foaf:depiction ?photo .
+  ?s dbo:kingdom dbr:Plant
+}
+
+#DBPedia photo/filtre plant + referentiel:
+
+SELECT ?cd_nom ?nom_cite ?ConservationStatus ?syn_cite ?nom_francais_cite ?precisions ?cd_nom_cite ?photo WHERE {
+  ?s schema:identifier ?cd_nom .
+  ?s foaf:name ?nom_cite .
+  ?s wlo:conservationStatus ?cs .
+  ?cs schema:identifier ?ConservationStatus .
+  OPTIONAL { ?s dbo:synonym ?syn_cite } .
+  OPTIONAL { ?s wlo:shortDescription ?precisions } .
+  ?s schema:identifier ?cd_nom_cite .
+  ?s foaf:depiction ?photo .
+  ?s dbo:kingdom dbr:Plant
+}
+
+#All with article description
+
+SELECT ?cd_nom ?nom_cite ?ConservationStatus ?syn_cite ?precisions ?cd_nom_cite ?photo ?intitule ?article ?url_inpn ?date_arrete ?cd_doc ?arrete ?url ?type WHERE {
+  ?s schema:identifier ?cd_nom .
+  ?s foaf:name ?nom_cite .
+  ?s wlo:conservationStatus ?cs .
+  ?cs schema:identifier ?ConservationStatus .
+  OPTIONAL { ?s dbo:synonym ?syn_cite } .
+  OPTIONAL { ?s wlo:shortDescription ?precisions } .
+  ?s schema:identifier ?cd_nom_cite .
+  ?s foaf:depiction ?photo .
+  ?s dbo:kingdom dbr:Plant .
+  ?s2 schema:identifier ?ConservationStatus .
+  ?s2 wlo:threatDescription ?intitule .
+  OPTIONAL { ?s2 dcmi:isReferencedBy ?article }.
+  ?s2 wlo:populationTrend ?url_inpn .
+  ?s2 wlo:yearAssessed ?date_arrete .
+  ?s2 dbo:related ?LegalResource .
+  ?LegalResource eli:number ?cd_doc .
+  ?LegalResource eli:description ?arrete .
+  OPTIONAL { ?LegalResource schema:url ?url }.
+  ?s2 wlo:shortDescription ?type
+}
