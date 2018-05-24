@@ -1,0 +1,109 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#Event> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "jep2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.nom" ] ;
+            rr:predicate rdfs:label ],
+        [ rr:objectMap [ rml:reference "$.descriptif_long" ] ;
+                rr:predicate rdfs:comment ],
+        [ rr:objectMap [ rml:reference "$.descriptif_court" ] ;
+                rr:predicate rdfs:comment ],
+        [ rr:objectMap [ rml:reference "$.descriptif" ] ;
+                rr:predicate rdfs:comment ],
+        [ rr:objectMap [ rml:reference "$.titre" ] ;
+                rr:predicate rdfs:comment ],
+        [ rr:objectMap [ rml:reference "$.themes" ] ;
+                rr:predicate rdfs:comment ],
+        [ rr:objectMap [ rml:reference "$.horaires" ] ;
+                rr:predicate <http://www.w3.org/2006/time#Interval> ],
+        [ rr:objectMap [ rml:reference "$.date_fin" ;
+                    rr:datatype xsd:date ] ;
+            rr:predicate <http://dbpedia.org/ontology/endDate> ],
+        [ rr:objectMap [ rml:reference "$.date_debut" ;
+                    rr:datatype xsd:date ] ;
+            rr:predicate <http://dbpedia.org/ontology/startDate> ];
+    rr:subjectMap [ rr:class <http://schema.org/Event> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/jep2015@public/Event/{nom}" ] .
+
+<#Place> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "jep2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.nom" ] ;
+            rr:predicate rdfs:label ] ,
+        [ rr:objectMap [ rml:reference "$.adresse" ] ;
+            rr:predicate <http://rdfs.co/juso/Address> ],
+        [ rr:objectMap [ rml:reference "$.latitude" ] ;
+            rr:predicate <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ],
+        [ rr:objectMap [ rr:parentTriplesMap <#Settlement-commune> ] ;
+            rr:predicate <http://dbpedia.org/ontology/commune> ],
+        [ rr:objectMap [ rml:reference "$.longitude" ] ;
+            rr:predicate <http://www.w3.org/2003/01/geo/wgs84_pos#long> ],
+        [ rr:objectMap [ rml:reference "$.telephone_admin" ] ;
+            rr:predicate <http://www.w3.org/2006/vcard/ns#tel> ],
+        [ rr:objectMap [ rml:reference "$.telephone_public" ] ;
+            rr:predicate <http://www.w3.org/2006/vcard/ns#tel> ],
+        [ rr:objectMap [ rml:reference "$.code_postal" ;
+                    rr:datatype xsd:int ] ;
+            rr:predicate <http://dbpedia.org/ontology/postalCode> ],
+        [ rr:objectMap [ rml:reference "$.courriel" ] ;
+            rr:predicate <http://usefulinc.com/ns/doap#mailing-list> ],
+        [ rr:objectMap [ rml:reference "$.twitter" ] ;
+            rr:predicate <http://purl.org/seo/hasTwitter> ],
+        [ rr:objectMap [ rml:reference "$.facebook" ] ;
+            rr:predicate <http://schema.org/url> ],
+        [ rr:objectMap [ rml:reference "$.site_internet" ] ;
+            rr:predicate <http://schema.org/url> ],
+        [ rr:objectMap [ rr:parentTriplesMap <#Country-pays> ] ;
+            rr:predicate <http://dbpedia.org/ontology/country> ],
+        [ rr:objectMap [ rr:parentTriplesMap <#AdministrativeRegion-region> ] ;
+            rr:predicate <http://dbpedia.org/ontology/region> ],
+        [ rr:objectMap [ rr:parentTriplesMap <#Settlement-nom_dept> ] ;
+            rr:predicate <http://dbpedia.org/ontology/department> ],
+        [ rr:objectMap [ rml:reference "$.numero_insee" ;
+                    rr:datatype xsd:int ] ;
+            rr:predicate <http://dbpedia.org/ontology/inseeCode> ] ;
+    rr:subjectMap [ rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/jep2015@public/Place/{nom}" ] .
+
+<#AdministrativeRegion-region> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "jep2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.region" ] ;
+            rr:predicate rdfs:label ] ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/AdministrativeRegion> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/jep2015@public/AdministrativeRegion/{region}" ] .
+
+<#Country-pays> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "jep2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.pays" ] ;
+            rr:predicate rdfs:label ] ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/Country> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/jep2015@public/Country/{pays}" ] .
+
+<#Settlement-commune> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "jep2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.commune" ] ;
+            rr:predicate rdfs:label ] ;
+    rr:subjectMap [ rr:class <http://rdf.insee.fr/def/geo#Commune> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/jep2015@public/Commune/{commune}" ] .
+
+<#Settlement-nom_dept> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "jep2015@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.nom_dept" ] ;
+            rr:predicate rdfs:label ] ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/Department> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/jep2015@public/Department/{nom_dept}" ] .

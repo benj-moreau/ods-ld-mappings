@@ -25,7 +25,7 @@
             rml:source "open-data-sources@public" ] ;
     rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.country" ] ;
             rr:predicate rdfs:label ] ;
-    rr:subjectMap [ rr:class <http://d-nb.info/standards/elementset/gnd#Country> ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/country> ;
             rr:class <http://schema.org/Place> ;
             rr:template "https://data.opendatasoft.com/ld/resources/open-data-sources@public/Country/{country}" ] .
 
