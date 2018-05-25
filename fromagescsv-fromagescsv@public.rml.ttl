@@ -1,0 +1,35 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#Fromage> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "fromagescsv-fromagescsv@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.english_page" ] ;
+            rr:predicate <http://xmlns.com/foaf/0.1/page> ],
+        [ rr:objectMap [ rr:parentTriplesMap <#Settlement-departement> ] ;
+            rr:predicate <http://dbpedia.org/ontology/department> ],
+        [ rr:objectMap [ rml:reference "$.page_francaise" ] ;
+            rr:predicate <http://xmlns.com/foaf/0.1/page> ],
+        [ rr:objectMap [ rml:reference "$.lait" ] ;
+            rr:predicate <http://dbpedia.org/ontology/ingredient> ],
+        [ rr:objectMap [ rml:reference "$.fromage" ] ;
+            rr:predicate rdfs:label ],
+        [ rr:objectMap [ rml:reference "$.geo_point_2d" ] ;
+            rr:predicate <http://www.w3.org/2006/vcard/ns#geo> ] ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/Cheese> ;
+            rr:class <http://dbpedia.org/ontology/Food> ;
+            rr:template "http://dbpedia.org/resource/{fromage}" ] .
+
+<#Settlement-departement> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "fromagescsv-fromagescsv@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.departement" ] ;
+            rr:predicate rdfs:label ] ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/Department> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/fromagescsv-fromagescsv@public/Department/{departement}" ] .
