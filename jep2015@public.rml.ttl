@@ -21,6 +21,8 @@
                 rr:predicate rdfs:comment ],
         [ rr:objectMap [ rml:reference "$.themes" ] ;
                 rr:predicate rdfs:comment ],
+        [ rr:objectMap [ rr:parentTriplesMap <#Place>] ;
+            rr:predicate <http://linkedevents.org/ontology/atPlace> ],
         [ rr:objectMap [ rml:reference "$.horaires" ] ;
                 rr:predicate <http://www.w3.org/2006/time#Interval> ],
         [ rr:objectMap [ rml:reference "$.date_fin" ;
