@@ -1,0 +1,62 @@
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<#MusicalArtist-name> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "rapworld@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.bio_yearsactivestart" ;
+                    rr:datatype xsd:date ] ;
+            rr:predicate <http://dbpedia.org/ontology/activeYearsStartDate> ],
+        [ rr:objectMap [ rml:reference "$.bio_yearsactiveend" ;
+                    rr:datatype xsd:date ] ;
+            rr:predicate <http://dbpedia.org/ontology/activeYearsEndDate> ],
+        [ rr:objectMap [ rml:reference "$.bio_birthdate" ;
+                    rr:datatype xsd:date ] ;
+            rr:predicate <http://schema.org/birthDate> ],
+        [ rr:objectMap [ rr:parentTriplesMap <#Settlement-location_neighborhood> ] ;
+            rr:predicate <http://softeng.polito.it/rsctx#neighborhood> ],
+        [ rr:objectMap [ rml:reference "$.youtube_clipexampleurl" ] ;
+            rr:predicate <http://www.lexinfo.net/ontology/2.0/lexinfo#example> ],
+        [ rr:objectMap [ rml:reference "$.name" ] ;
+            rr:predicate rdfs:label ],
+        [ rr:objectMap [ rml:reference "$.bio_deathdate" ;
+                    rr:datatype xsd:date ] ;
+            rr:predicate <http://schema.org/deathDate> ],
+        [ rr:objectMap [ rr:parentTriplesMap <#City-location_city> ] ;
+            rr:predicate <http://dbpedia.org/ontology/city> ],
+        [ rr:objectMap [ rml:reference "$.categories" ] ;
+            rr:predicate <http://www.w3.org/2002/12/cal/ical#categories> ],
+        [ rr:objectMap [ rml:reference "$.bio_url" ] ;
+            rr:predicate <http://schema.org/url> ],
+        [ rr:objectMap [ rml:reference "$.bio_summary" ] ;
+            rr:predicate <http://www.ebu.ch/metadata/ontologies/ebucore/ebucore#summary> ],
+        [ rr:objectMap [ rml:reference "$.name" ] ;
+            rr:predicate <http://purl.org/ontology/wo/name> ] ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/MusicalArtist> ;
+            rr:class <http://xmlns.com/foaf/0.1/Person> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/rapworld@public/MusicalArtist/{name}" ] .
+
+<#City-location_city> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "rapworld@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.location_city" ] ;
+            rr:predicate rdfs:label ] ;
+    rr:subjectMap [ rr:class <http://www.aktors.org/ontology/portal#City> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/rapworld@public/City/{location_city}" ] .
+
+<#Settlement-location_neighborhood> rml:logicalSource [ rml:iterator "$.[*].fields" ;
+            rml:referenceFormulation ql:JSONPath ;
+            rml:source "rapworld@public" ] ;
+    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.location_coordinates" ] ;
+            rr:predicate <http://d-nb.info/standards/elementset/gnd#coordinates> ],
+        [ rr:objectMap [ rml:reference "$.location_neighborhood" ] ;
+            rr:predicate rdfs:label ] ;
+    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/Settlement> ;
+            rr:class <http://schema.org/Place> ;
+            rr:template "https://data.opendatasoft.com/ld/resources/rapworld@public/Settlement/{location_neighborhood}" ] .
