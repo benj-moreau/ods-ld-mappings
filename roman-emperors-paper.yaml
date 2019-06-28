@@ -1,0 +1,45 @@
+prefixes:
+  ex: "http://example.org/"
+  dbo: "http://dbpedia.org/ontology/"
+  locah: "http://data.archiveshub.ac.uk/def/"
+  geo: "http://www.w3.org/2003/01/geo/wgs84_pos#"
+  foaf: "http://xmlns.com/foaf/0.1/"
+  schema: "http://schema.org/"
+  wikidata: "http://www.wikidata.org/entity/"
+  dul: "http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#"
+sources:
+  dataset-source: [people.csv~csv]
+mappings:
+  person:
+    source: dataset-source
+    s: ex:Person/$(Name)
+    po:
+      - [a, dbo:Person]
+      - [a, dbo:Agent]
+      - [a, foaf:Person]
+      - [a, dul:NaturalPerson]
+      - [a, wikidata:Q215627]
+      - [a, wikidata:Q5]
+      - [a, schema:Person]
+      - [dbo:name, $(Name)]
+      - [locah:dateBirth, $(Birth)]
+      - [dbo:birthPlace, ex:Place/$(Birth City)~iri]
+      - [dbo:birthPlace, ex:Place/$(Birth Province)~iri]
+      - [rdfs:label, $(Name)]
+  place:
+    source: dataset-source
+    s: ex:Place/$(Birth City)
+    po:
+      - [a, dbo:Place]
+      - [a, dbo:Location]
+      - [a, schema:Place]
+      - [a, geo:SpatialThing]
+      - [rdfs:label, $(Birth City)]
+  spatialthing:
+    source: dataset-source
+    s: ex:Place/$(Birth Province)
+    po:
+      - [a, geo:SpatialThing]
+      - [geo:lat, $(Lat)]
+      - [geo:long, $(Long)]
+      - [rdfs:label, $(Birth Province)]
