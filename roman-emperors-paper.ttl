@@ -1,0 +1,48 @@
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix locah: <http://data.archiveshub.ac.uk/def/> .
+@prefix geo: <http://www.w3.org/2003/01/geo/wgs84_pos#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/>  .
+@prefix schema: <http://schema.org/>  .
+@prefix wikidata: <http://www.wikidata.org/entity/> .
+@prefix dul: <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#> .
+
+<http://example.org/Person/Augustus>
+  a dbo:Person, dbo:Agent, foaf:Person, dul:NaturalPerson, wikidata:Q215627, wikidata:Q5, schema:Person ;
+  dbo:name  "Augustus"  ;
+  locah:dateBirth "0062-09-23"  ;
+  dbo:birthPlace <http://example.org/Place/Rome> ;
+  rdfs:label  "Augustus"  .
+
+<http://example.org/Person/Caligula>
+  a dbo:Person, dbo:Agent, foaf:Person, dul:NaturalPerson, wikidata:Q215627, wikidata:Q5, schema:Person ;
+  dbo:name  "Caligula"  ;
+  locah:dateBirth "0012-08-31"  ;
+  dbo:birthPlace <http://example.org/Place/Antitum> ;
+  rdfs:label  "Caligula"  .
+  
+<http://example.org/Person/Claudius>
+  a dbo:Person, dbo:Agent, foaf:Person, dul:NaturalPerson, wikidata:Q215627, wikidata:Q5, schema:Person ;
+  dbo:name  "Claudius"  ;
+  locah:dateBirth "0009-08-01"  ;
+  dbo:birthPlace <http://example.org/Place/Lugdunum> ;
+  dbo:birthPlace <http://example.org/Place/Gallia_Lugdunensis> ;
+  rdfs:label  "Claudius"  .
+
+<http://example.org/Place/Rome>
+  a dbo:Place, dbo:Location, schema:Place, geo:SpatialThing ;
+  rdfs:label  "Rome"  .
+
+<http://example.org/Place/Antitum>
+  a dbo:Place, dbo:Location, schema:Place, geo:SpatialThing ;
+  rdfs:label  "Antitum"  .
+
+<http://example.org/Place/Lugdunum>
+  a dbo:Place, dbo:Location, schema:Place, geo:SpatialThing ;
+  rdfs:label  "Lugdunum"  .
+
+<http://example.org/Place/Gallia_Lugdunensis>
+  a geo:SpatialThing ;
+  geo:lat "47.932559" ;
+  geo:long  "0.191854"  ;
+  rdfs:label  "Gallia Lugdunensis"  .
