@@ -1,4 +1,6 @@
 Plant Query
+http://mydomain.ods.com:8000/api/tpf/especes-protegees-et-reglementees-referentiel
+
 http://client.linkeddatafragments.org/#datasources=http%3A%2F%2Ffragments.dbpedia.org%2F2016-04%2Fen;http%3A%2F%2Fmydomain.ods.com%3A8000%2Fapi%2Ftpf%2Fespeces-protegees-et-reglementees-referentiel&query=PREFIX%20schema%3A%20%3Chttp%3A%2F%2Fschema.org%2F%3E%0APREFIX%20dbo%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fontology%2F%3E%0APREFIX%20dbp%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fproperty%2F%3E%0APREFIX%20dbr%3A%20%3Chttp%3A%2F%2Fdbpedia.org%2Fresource%2F%3E%0APREFIX%20foaf%3A%20%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0APREFIX%20wlo%3A%20%3Chttp%3A%2F%2Fpurl.org%2Fontology%2Fwo%2F%3E%0A%0ASELECT%20%3Fplant_name%20%3Fdescription%20%3Fimage%20%3Fspecie%20%3Farticle_protection%0AWHERE%20%7B%0A%20%20%3Fs%20foaf%3Aname%20%3Fplant_name%20.%0A%20%20%3Fs%20wlo%3AconservationStatus%20%3Fcs%20.%0A%20%20%3Fcs%20schema%3Aidentifier%20%3Farticle_protection%20.%0A%20%20%3Fs%20dbo%3Akingdom%20dbr%3APlant%20.%0A%20%20%3Fs%20foaf%3Adepiction%20%3Fimage%20.%0A%20%20%3Fs%20rdfs%3Acomment%20%3Fdescription%20.%0A%20%20%3Fs%20dbp%3Aspecies%20%3Fspecie%0A%7D
 
 PREFIX schema: <http://schema.org/>

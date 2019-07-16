@@ -1,0 +1,55 @@
+mappings:
+  event:
+    predicateobjects:
+      - [a, 'http://schema.org/Event']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(title)]
+      - ['http://www.w3.org/2000/01/rdf-schema#comment', $(description)]
+      - ['http://www.w3.org/2000/01/rdf-schema#comment', $(descriptif)]
+      - ['http://www.w3.org/2000/01/rdf-schema#comment', $(free_text)]
+      - ['http://dbpedia.org/ontology/thumbnail', image]
+      - ['https://schema.org/location', location]
+      - ['http://purl.org/dc/elements/1.1/language', $(lang)]
+      - ['https://schema.org/inLanguage', $(lang)]
+      - ['https://schema.org/startDate', $(date_start), 'http://www.w3.org/2001/XMLSchema#date']
+      - ['https://schema.org/endDate', $(date_end), 'http://www.w3.org/2001/XMLSchema#date']
+      - ['http://dbpedia.org/ontology/dateLastUpdated', $(updated_at), 'http://www.w3.org/2001/XMLSchema#dateTime']
+    source: dataset-source
+    subject: ${link}
+  image:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Image']
+    source: dataset-source
+    subject: $(image)
+  location:
+    predicateobjects:
+      - [a, 'https://schema.org/PostalAddress']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(address)]
+      - ['http://www.w3.org/2000/01/rdf-schema#comment', $(address)]
+      - ['https://schema.org/streetAddress', $(address)]
+      - ['https://schema.org/areaServed', $(latlon)]
+      - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat_long', $(latlon)]
+      - ['http://dbpedia.org/ontology/city', city]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Location/{address}
+  city:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/City']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(city)]
+      - ['http://dbpedia.org/ontology/department', department]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/City/{city}
+  department:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Department']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(department)]
+      - ['http://dbpedia.org/ontology/region', region]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Department/{department}
+  region:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Region']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(region)]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Region/{region}
+sources:
+  dataset-source: [evenements-publics-cibul@public.json~jsonpath, '$.[*].fields']
