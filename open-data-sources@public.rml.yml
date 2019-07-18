@@ -1,46 +1,49 @@
-@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
-@prefix rr: <http://www.w3.org/ns/r2rml#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+mappings:
+  country:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Country']
+      - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
+      - [a, 'http://schema.org/Country']
+      - [a, 'http://www.wikidata.org/entity/Q6256']
+      - [a, 'http://schema.org/Place']
+      - [a, 'http://rdfs.co/juso/SpatialThing']
+      - [a, 'http://schema.org/Thing']
+      - [a, 'http://purl.org/goodrelations/v1#Location']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(country)]
+      - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat_long', $(location)]
+      - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat', $(latitude)]
+      - ['http://ontology.eil.utoronto.ca/icontact.owl#addressDataProperty', $(latitude)]
+      - ['http://www.w3.org/2003/01/geo/wgs84_pos#long', $(longitude)]
+      - ['http://ontology.eil.utoronto.ca/icontact.owl#addressDataProperty', $(longitude)]
+      - ['http://www.w3.org/2002/07/owl#topDataProperty', $(longitude)]
+      - ['http://schema.org/sameAs', 'http://dbpedia.org/resource/$(country)']
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/open-data-sources@public/Country/$(country)
+  open-data-portal:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Website']
+      - [a, 'http://dbpedia.org/ontology/Work']
+      - [a, 'http://schema.org/WebPage']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(name)]
+      - ['http://www.w3.org/2000/01/rdf-schema#comment', $(description)]
+      - ['http://dbpedia.org/ontology/publisher', organisation]
+      - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#coparticipatesWith', organisation]
+    source: dataset-source
+    subject: $(url)
+  organisation:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Organisation']
+      - [a, 'http://dbpedia.org/ontology/Agent']
+      - [a, 'http://schema.org/Organization']
+      - [a, 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#SocialPerson']
+      - [a, 'http://www.wikidata.org/entity/Q43229']
+      - [a, 'http://www.w3.org/2002/07/owl#Thing']
+      - [a, 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(organisation)]
+      - ['http://dbpedia.org/ontology/country', country]
+      - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', country]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/open-data-sources@public/Organisation/$(organisation)
+sources:
+  dataset-source: [open-data-sources@public.json~jsonpath, '$.[*].fields']
 
-<#Website> rml:logicalSource [ rml:iterator "$.[*].fields" ;
-            rml:referenceFormulation ql:JSONPath ;
-            rml:source "open-data-sources@public" ] ;
-    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.description" ] ;
-            rr:predicate <http://purl.org/dc/terms/description> ],
-        [ rr:objectMap [ rml:reference "$.name" ] ;
-            rr:predicate rdfs:label ],
-        [ rr:objectMap [ rr:parentTriplesMap <#Organisation> ] ;
-            rr:predicate <http://dbpedia.org/ontology/organisation> ],
-        [ rr:objectMap [ rml:reference "$.url" ] ;
-            rr:predicate <http://schema.org/url> ] ;
-    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/Website> ;
-            rr:template "https://data.opendatasoft.com/ld/resources/open-data-sources@public/Website/{name}" ] .
-
-<#Country> rml:logicalSource [ rml:iterator "$.[*].fields" ;
-            rml:referenceFormulation ql:JSONPath ;
-            rml:source "open-data-sources@public" ] ;
-    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.country" ] ;
-            rr:predicate rdfs:label ] ;
-    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/country> ;
-            rr:class <http://schema.org/Place> ;
-            rr:template "https://data.opendatasoft.com/ld/resources/open-data-sources@public/Country/{country}" ] .
-
-<#Organisation> rml:logicalSource [ rml:iterator "$.[*].fields" ;
-            rml:referenceFormulation ql:JSONPath ;
-            rml:source "open-data-sources@public" ] ;
-    rr:predicateObjectMap [ rr:objectMap [ rml:reference "$.latitude" ] ;
-            rr:predicate <http://www.w3.org/2003/01/geo/wgs84_pos#lat> ],
-        [ rr:objectMap [ rml:reference "$.organisation" ] ;
-            rr:predicate rdfs:label ],
-        [ rr:objectMap [ rr:parentTriplesMap <#Country> ] ;
-            rr:predicate <http://dbpedia.org/ontology/country> ],
-        [ rr:objectMap [ rml:reference "$.longitude" ] ;
-            rr:predicate <http://www.w3.org/2003/01/geo/wgs84_pos#long> ],
-        [ rr:objectMap [ rml:reference "$.location" ] ;
-            rr:predicate <http://data.archiveshub.ac.uk/def/location> ] ;
-    rr:subjectMap [ rr:class <http://dbpedia.org/ontology/Organisation> ;
-            rr:template "https://data.opendatasoft.com/ld/resources/open-data-sources@public/Organisation/{organisation}" ] .
