@@ -60,6 +60,7 @@ mappings:
       - ['http://schema.org/birthDate', $(bio_birthdate), 'http://www.w3.org/2001/XMLSchema#date']
       - ['http://purl.org/ontology/mo/wikipedia', $(bio_url)]
       - ['http://xmlns.com/foaf/0.1/isPrimaryTopicOf', $(bio_url)]
+      - ['http://dbpedia.org/ontology/location', field-location_neighborhood]
     source: dataset-source
     subject: https://data.opendatasoft.com/ld/resources/rapworld@public/Singer/$(name)
 sources:
