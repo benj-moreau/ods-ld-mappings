@@ -12,6 +12,7 @@ mappings:
       - ['http://schema.org/sameAs', 'http://dbpedia.org/resource/$(cheese)']
       - ['http://dbpedia.org/ontology/department', department]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf', department]
+      - ['https://schema.org/image', image]
       - ['http://dbpedia.org/ontology/thumbnail', image]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isExpressedBy', image]
     source: dataset-source
