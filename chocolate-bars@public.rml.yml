@@ -1,0 +1,42 @@
+mappings:
+  chocolate_bar:
+    predicateobjects:
+      - [a, 'http://www.productontology.org/id/Chocolate']
+      - [a, 'http://dbpedia.org/ontology/Food']
+      - [a, 'http://www.ontotext.com/proton/protonext#Food']
+      - [a, 'http://schema.org/Product']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', '$(company) $(name) chocolate bar']
+      - ['http://www.w3.org/2000/01/rdf-schema#comment', '$(company) $(name) chocolate bar with $(cocoa_percent)% cacao rated $(rating)/5']
+      - ['https://schema.org/manufacturer', company]
+      - ['http://kmi.open.ac.uk/projects/smartproducts/ontologies/food.owl#hasGeographicalProvenance', bean_country]
+      - ['http://dbpedia.org/ontology/rating', $(rating)]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/chocolate-bars@public/Chocolate/$(name)-$(ref)
+  bean_country:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Country']
+      - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
+      - [a, 'http://schema.org/Country']
+      - [a, 'http://schema.org/Place']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(broad_bean_origin)]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/chocolate-bars@public/Country/$(broad_bean_origin)
+  company_country:
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Country']
+      - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
+      - [a, 'http://schema.org/Country']
+      - [a, 'http://schema.org/Place']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(company_location)]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/chocolate-bars@public/Country/$(company_location)
+  company:
+    predicateobjects:
+      - [a, 'https://schema.org/Organization']
+      - [a, 'http://dbpedia.org/ontology/Company']
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(company)]
+      - ['http://dbpedia.org/ontology/country', company_country]
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/chocolate-bars@public/Company/$(company)
+sources:
+  dataset-source: [chocolate-bars@public.json~jsonpath, '$.[*].fields']
