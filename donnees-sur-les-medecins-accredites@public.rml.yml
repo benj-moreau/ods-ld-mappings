@@ -37,7 +37,7 @@ mappings:
       - ['https://schema.org/familyName', $(nom_du_medecin)]
       - ['https://schema.org/givenName', $(prenom_du_medecin)]
       - ['https://pending.schema.org/jobTitle', $(libelle_long_de_la_specialite_du_medecin)]
-      - ['http://dbpedia.org/ontology/speciality' $(libelle_long_de_la_specialite_du_medecin)]
+      - ['http://dbpedia.org/ontology/speciality', $(libelle_long_de_la_specialite_du_medecin)]
       - ['https://schema.org/disambiguatingDescription', 'OA:$(nom_de_l_oa_a_du_medecin) date-accreditation:$(date_d_accreditation_du_medecin)']
     source: dataset-source
     subject: https://data.opendatasoft.com/ld/resources/donnees-sur-les-medecins-accredites@public/Doctor/$(nom_du_medecin)_$(prenom_du_medecin)_$(code_finess)_$(nom_de_l_oa_a_du_medecin)

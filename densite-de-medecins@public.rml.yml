@@ -14,8 +14,8 @@ mappings:
     predicateobjects:
       - [a, 'https://schema.org/MedicalSpecialty']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(specialite)]
-      source: dataset-source
-      subject: https://data.opendatasoft.com/ld/resources/densite-de-medecins@public/MedicalSpeciality/$(specialite)
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/densite-de-medecins@public/MedicalSpeciality/$(specialite)
   Value:
     predicateobjects:
       - [a, 'https://schema.org/QuantitativeValue']
@@ -23,7 +23,7 @@ mappings:
       - ['https://schema.org/unitText', 'medecins/100000 habitants']
       - ['https://schema.org/location', Departement]
       - ['http://schema.org/category', Specialite]
-      source: dataset-source
-      subject: https://data.opendatasoft.com/ld/resources/densite-de-medecins@public/DensiteMedecin/$(specialite)-$(ndept)
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/densite-de-medecins@public/DensiteMedecin/$(specialite)-$(ndept)
 sources:
   dataset-source: [densite-de-medecins@public.json~jsonpath, '$.records.[*].fields']
