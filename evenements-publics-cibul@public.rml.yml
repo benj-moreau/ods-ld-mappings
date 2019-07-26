@@ -4,7 +4,6 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/City']
       - [a, 'http://dbpedia.org/ontology/Settlement']
       - [a, 'http://schema.org/City']
-      - [a, 'http://www.wikidata.org/entity/Q515']
       - [a, 'http://schema.org/Place']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(city)]
       - ['http://dbpedia.org/ontology/department', department]
@@ -64,7 +63,6 @@ mappings:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Region']
       - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
-      - [a, 'http://www.wikidata.org/entity/Q3455524']
       - [a, 'http://schema.org/Place']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(region)]
     source: dataset-source

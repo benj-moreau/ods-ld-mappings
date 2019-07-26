@@ -37,7 +37,6 @@ mappings:
       - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - [a, 'http://www.w3.org/2000/10/swap/pim/contact#SocialEntity']
       - [a, 'http://www.w3.org/2000/01/rdf-schema#Resource']
-      - [a, 'http://purl.obolibrary.org/obo/BFO_0000004']
       - [a, 'http://purl.org/dc/elements/1.1/Agent']
       - [a, 'http://purl.org/net/provenance/ns#HumanAgent']
       - [a, 'http://purl.org/vocab/frbr/core#ResponsibleEntity']

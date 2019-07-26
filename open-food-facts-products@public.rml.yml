@@ -46,7 +46,6 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Country']
       - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
       - [a, 'http://schema.org/Country']
-      - [a, 'http://www.wikidata.org/entity/Q6256']
       - [a, 'http://ontology.eil.utoronto.ca/icontact.owl#SchemaOrgThing']
       - [a, 'http://schema.org/AdministrativeArea']
       - [a, 'http://schema.org/Place']

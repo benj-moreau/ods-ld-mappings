@@ -33,8 +33,6 @@ mappings:
       - [a, 'http://xmlns.com/foaf/0.1/Person']
       - [a, 'http://linkedgeodata.org/ontology/Doctor']
       - [a, 'http://linkedgeodata.org/ontology/Amenity']
-      - [a, 'http://semanticscience.org/resource/SIO_000394']
-      - [a, 'http://semanticscience.org/resource/SIO_000716']
       - ['https://schema.org/affiliation', Etablissement]
       - ['https://schema.org/familyName', $(nom_du_medecin)]
       - ['https://schema.org/givenName', $(prenom_du_medecin)]
@@ -47,7 +45,6 @@ mappings:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Region']
       - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
-      - [a, 'http://www.wikidata.org/entity/Q3455524']
       - [a, 'http://data.ign.fr/def/geofla#Region']
       - [a, 'http://data.ign.fr/def/geofla#UniteAdministrative']
       - [a, 'http://rdf.insee.fr/def/geo#Region']

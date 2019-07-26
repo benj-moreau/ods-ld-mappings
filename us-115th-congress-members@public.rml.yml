@@ -3,7 +3,6 @@ mappings:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Politician']
       - [a, 'http://dbpedia.org/ontology/Person']
-      - [a, 'http://www.wikidata.org/entity/Q82955']
       - [a, 'http://dbpedia.org/ontology/Congressman']
       - [a, 'http://schema.org/Person']
       - [a, 'http://purl.org/dc/terms/Agent']
@@ -32,7 +31,6 @@ mappings:
       - [a, 'http://xmlns.com/foaf/0.1/Document']
       - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - [a, 'http://schema.org/CreativeWork']
-      - [a, 'http://www.wikidata.org/entity/Q386724']
       - [a, 'http://sw-portal.deri.org/ontologies/swportal#Publication']
     source: dataset-source
     subject: https://data.opendatasoft.com/explore/dataset/us-115th-congress-members@public/files/$(img.id)/download/
@@ -40,7 +38,6 @@ mappings:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/PoliticalParty']
       - [a, 'http://dbpedia.org/ontology/Organisation']
-      - [a, 'http://www.wikidata.org/entity/Q7278']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(party)]
     source: dataset-source
     subject: https://data.opendatasoft.com/ld/resources/us-115th-congress-members@public/PoliticalParty/$(party)
