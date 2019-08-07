@@ -29,17 +29,11 @@ mappings:
   round:
     predicateobjects:
       - [a, 'https://www.bbc.co.uk/ontologies/sport#terms_Round']
-      - [a, 'http://www.bbc.co.uk/ontologies/sport/SportingOrganisation']
-      - [a, 'http://www.bbc.co.uk/ontologies/coreconcepts/Organisation']
-      - [a, 'http://xmlns.com/foaf/0.1/Organization']
-      - [a, 'http://dbpedia.org/ontology/SportsTeam']
-      - [a, 'http://dbpedia.org/ontology/Organisation']
-      - [a, 'http://schema.org/SportsTeam']
       - ['http://www.w3.org/2000/01/rdf-schema#label', Ligue1 day $(name) $(start_date)-$(end_date)]
       - ['https://www.bbc.co.uk/ontologies/sport#terms_hasMatch', match]
       - ['http://dbpedia.org/ontology/startDate', $(start_date), 'http://www.w3.org/2001/XMLSchema#date']
       - ['http://dbpedia.org/ontology/endDate', $(end_date), 'http://www.w3.org/2001/XMLSchema#date']
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/premier-league-results-2017-2018@public/SoccerMatch/$(home_team)-$(away_team)-$(start_date)
+    subject: https://data.opendatasoft.com/ld/resources/premier-league-results-2017-2018@public/LigueDay/$(name)-$(start_date)
 sources:
   dataset-source: [premier-league-results-2017-2018@public.json~jsonpath, '$.records.[*].fields']
