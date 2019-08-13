@@ -8,7 +8,6 @@ mappings:
       - [a, 'http://rdfs.co/juso/SpatialThing']
       - [a, 'http://schema.org/Thing']
       - [a, 'http://purl.org/goodrelations/v1#Location']
-      - [a, 'http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning']
       - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(location_city)]
     source: dataset-source
@@ -19,7 +18,6 @@ mappings:
       - [a, 'http://rdfs.co/juso/SpatialThing']
       - [a, 'http://schema.org/Thing']
       - [a, 'http://purl.org/goodrelations/v1#Location']
-      - [a, 'http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning']
       - [a, 'http://dbpedia.org/ontology/CityDistrict']
       - [a, 'http://dbpedia.org/ontology/Settlement']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(location_neighborhood)]

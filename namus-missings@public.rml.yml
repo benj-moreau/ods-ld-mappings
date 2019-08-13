@@ -76,6 +76,6 @@ mappings:
       - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - [a, 'http://schema.org/CreativeWork']
     source: dataset-source
-    subject: https://data.opendatasoft.com/explore/dataset/namus-missings@public/files/$(image.id)/download/
+    subject: $(image)
 sources:
   dataset-source: [namus-missings@public.json~jsonpath, '$.[*].fields']

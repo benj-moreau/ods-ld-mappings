@@ -8,7 +8,6 @@ mappings:
       - [a, 'http://schema.org/AdministrativeArea']
       - [a, 'http://schema.org/Place']
       - [a, 'http://rdfs.co/juso/SpatialThing']
-      - [a, 'http://schema.org/Thing']
       - [a, 'http://purl.org/goodrelations/v1#Location']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(broad_bean_origin)]
     source: dataset-source
@@ -22,7 +21,6 @@ mappings:
       - [a, 'http://www.ontotext.com/proton/protonext#Food']
       - [a, 'http://www.ontotext.com/proton/protontop#Object']
       - [a, 'http://schema.org/Product']
-      - [a, 'http://schema.org/Thing']
       - [a, 'http://purl.org/goodrelations/v1#ProductOrService']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(company) $(name) chocolate bar]
       - ['http://www.w3.org/2000/01/rdf-schema#comment', $(company) $(name) chocolate bar with $(cocoa_percent)% cacao rated $(rating)/5]
@@ -47,12 +45,10 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Country']
       - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
       - [a, 'http://schema.org/Country']
-      - [a, 'http://dbpedia.org/ontology/Place']
       - [a, 'http://ontology.eil.utoronto.ca/icontact.owl#SchemaOrgThing']
       - [a, 'http://schema.org/AdministrativeArea']
       - [a, 'http://schema.org/Place']
       - [a, 'http://rdfs.co/juso/SpatialThing']
-      - [a, 'http://schema.org/Thing']
       - [a, 'http://purl.org/goodrelations/v1#Location']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(company_location)]
     source: dataset-source

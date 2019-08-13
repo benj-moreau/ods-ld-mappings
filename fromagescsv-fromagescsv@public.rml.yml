@@ -36,6 +36,6 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Work']
       - [a, 'http://xmlns.com/foaf/0.1/Document']
     source: dataset-source
-    subject: https://data.opendatasoft.com/explore/dataset/fromagescsv-fromagescsv@public/files/$(image.id)/download/
+    subject: $(image)
 sources:
   dataset-source: [fromagescsv-fromagescsv@public.json~jsonpath, '$.[*].fields']

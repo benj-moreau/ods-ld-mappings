@@ -2,7 +2,6 @@ mappings:
   commodity:
     predicateobjects:
       - [a, 'https://w3id.org/saref#Commodity']
-      - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - [a, 'https://w3id.org/seas/Commodity']
       - [a, 'https://w3id.org/seas/Good']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(commodity)]

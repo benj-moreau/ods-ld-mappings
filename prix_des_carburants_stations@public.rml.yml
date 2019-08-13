@@ -14,7 +14,6 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Organisation']
       - [a, 'http://dbpedia.org/ontology/Agent']
       - [a, 'http://schema.org/Organization']
-      - [a, 'http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Agent']
       - [a, 'http://purl.org/goodrelations/v1#BusinessEntity']
       - [a, 'http://xmlns.com/foaf/0.1/Agent']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(brand)]

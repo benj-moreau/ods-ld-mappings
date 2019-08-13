@@ -29,11 +29,10 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Document']
       - [a, 'http://dbpedia.org/ontology/Work']
       - [a, 'http://xmlns.com/foaf/0.1/Document']
-      - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - [a, 'http://schema.org/CreativeWork']
       - [a, 'http://sw-portal.deri.org/ontologies/swportal#Publication']
     source: dataset-source
-    subject: https://data.opendatasoft.com/explore/dataset/us-114th-congress-members@public/files/$(img.id)/download/
+    subject: $(img)
   party:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/PoliticalParty']
@@ -44,13 +43,11 @@ mappings:
   state:
     predicateobjects:
       - [a, 'http://schema.org/State']
-      - [a, 'http://ontology.eil.utoronto.ca/icontact.owl#SchemaOrgThing']
       - [a, 'http://schema.org/AdministrativeArea']
       - [a, 'http://dbpedia.org/ontology/State']
       - [a, 'http://dbpedia.org/ontology/PopulatedPlace']
       - [a, 'http://schema.org/Place']
       - [a, 'http://rdfs.co/juso/SpatialThing']
-      - [a, 'http://schema.org/Thing']
       - [a, 'http://purl.org/goodrelations/v1#Location']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(state_label)]
       - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat_long', $(geo_point_2d)]

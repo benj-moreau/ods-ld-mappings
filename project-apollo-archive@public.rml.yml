@@ -16,7 +16,7 @@ mappings:
       - ['https://schema.org/datePublished', $(photo_date_uploaded), 'http://www.w3.org/2001/XMLSchema#dateTime']
       - ['https://schema.org/isPartOf', imageGallery]
     source: dataset-source
-    subject: https://data.opendatasoft.com/explore/dataset/project-apollo-archive@public/files/$(photo_url_o.id)/download/
+    subject: $(photo_url_o)
   imageGallery:
     predicateobjects:
       - [a, 'https://schema.org/ImageGallery']
