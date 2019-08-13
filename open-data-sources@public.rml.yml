@@ -17,7 +17,7 @@ mappings:
       - ['http://www.w3.org/2002/07/owl#topDataProperty', $(longitude)]
       - ['http://schema.org/sameAs', 'http://dbpedia.org/resource/$(country)']
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-data-sources@public/Country/$(country)
+    subject: https://data.opendatasoft.com/ld/resources/open-data-sources@public/Country/$(country)/
   open-data-portal:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Website']
@@ -41,7 +41,7 @@ mappings:
       - ['http://dbpedia.org/ontology/country', country]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', country]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-data-sources@public/Organisation/$(organisation)
+    subject: https://data.opendatasoft.com/ld/resources/open-data-sources@public/Organisation/$(organisation)/
 sources:
   dataset-source: [open-data-sources@public.json~jsonpath, '$.[*].fields']
 

@@ -40,7 +40,7 @@ mappings:
       - ['http://dbpedia.org/ontology/country', company_country]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', company_country]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-food-facts-products@public/Company/$(brands)
+    subject: https://data.opendatasoft.com/ld/resources/open-food-facts-products@public/Company/$(brands)/
   company_country:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Country']
@@ -54,7 +54,7 @@ mappings:
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(countries), en~lang]
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(countries_fr), fr~lang]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-food-facts-products@public/Country/$(countries)
+    subject: https://data.opendatasoft.com/ld/resources/open-food-facts-products@public/Country/$(countries)/
   image:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Image']

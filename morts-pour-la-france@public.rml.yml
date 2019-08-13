@@ -7,7 +7,7 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/SocietalEvent']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(conflit)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/morts-pour-la-france@public/Conflict/$(conflit)
+    subject: https://data.opendatasoft.com/ld/resources/morts-pour-la-france@public/Conflict/$(conflit)/
   Departement:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Department']
@@ -20,7 +20,7 @@ mappings:
       - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat_long', $(geo_point_2d)]
       - ['http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#shape', $(geo_shape)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/morts-pour-la-france@public/Department/$(nom_departement)
+    subject: https://data.opendatasoft.com/ld/resources/morts-pour-la-france@public/Department/$(nom_departement)/
   Soldat:
     predicateobjects:
       - [a, 'http://schema.org/Person']

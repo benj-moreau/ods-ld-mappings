@@ -23,7 +23,7 @@ mappings:
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(album_name)]
       - ['https://schema.org/hasPart', image]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/project-apollo-archive@public/ImageGallery/$(album_id)-$(apollo_x)
+    subject: https://data.opendatasoft.com/ld/resources/project-apollo-archive@public/ImageGallery/$(album_id)-$(apollo_x)/
   mission:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/SpaceMission']
@@ -35,6 +35,6 @@ mappings:
       - ['http://dbpedia.org/ontology/landingDate', $(end_date), 'http://www.w3.org/2001/XMLSchema#date']
       - ['http://schema.org/image', imageGallery]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/project-apollo-archive@public/SpaceMission/$(apollo_x)
+    subject: https://data.opendatasoft.com/ld/resources/project-apollo-archive@public/SpaceMission/$(apollo_x)/
 sources:
   dataset-source: [project-apollo-archive@public.json~jsonpath, '$.[*].fields']

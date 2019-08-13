@@ -9,7 +9,7 @@ mappings:
       - ['http://dbpedia.org/ontology/department', department]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf', department]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/City/$(city)
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/City/$(city)/
   department:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Department']
@@ -19,7 +19,7 @@ mappings:
       - ['http://dbpedia.org/ontology/region', region]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', region]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Department/$(department)
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Department/$(department)/
   event:
     predicateobjects:
       - [a, 'http://schema.org/Event']
@@ -58,7 +58,7 @@ mappings:
       - ['http://dbpedia.org/ontology/city', city]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', city]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Location/$(address)
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Location/$(address)/
   region:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Region']
@@ -66,6 +66,6 @@ mappings:
       - [a, 'http://schema.org/Place']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(region)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Region/$(region)
+    subject: https://data.opendatasoft.com/ld/resources/evenements-publics-cibul@public/Region/$(region)/
 sources:
   dataset-source: [evenements-publics-cibul@public.json~jsonpath, '$.[*].fields']

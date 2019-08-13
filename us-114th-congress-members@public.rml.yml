@@ -39,7 +39,7 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Organisation']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(party)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/us-114th-congress-members@public/PoliticalParty/$(party)
+    subject: https://data.opendatasoft.com/ld/resources/us-114th-congress-members@public/PoliticalParty/$(party)/
   state:
     predicateobjects:
       - [a, 'http://schema.org/State']
@@ -55,6 +55,6 @@ mappings:
       - ['http://www.mindswap.org/2003/owl/geo/geoFeatures20040307.owl#shape', $(geo_shape)]
       - ['http://reference.data.gov/def/govdata/stateCode', $(state_code)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/us-114th-congress-members@public/State/$(state_label)
+    subject: https://data.opendatasoft.com/ld/resources/us-114th-congress-members@public/State/$(state_label)/
 sources:
   dataset-source: [us-114th-congress-members@public.json~jsonpath, '$.records.[*].fields']

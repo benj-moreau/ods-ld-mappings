@@ -15,7 +15,7 @@ mappings:
       - ['http://dbpedia.org/ontology/county', County]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', County]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/namus-missings@public/City/$(cityoflastcontact)
+    subject: https://data.opendatasoft.com/ld/resources/namus-missings@public/City/$(cityoflastcontact)/
   County:
     predicateobjects:
       - [a, 'http://schema.org/Place']
@@ -26,7 +26,7 @@ mappings:
       - ['http://dbpedia.org/ontology/state', State]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', State]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/namus-missings@public/County/$(countydisplaynameoflastcontact)
+    subject: https://data.opendatasoft.com/ld/resources/namus-missings@public/County/$(countydisplaynameoflastcontact)/
   Missing-Person:
     predicateobjects:
       - [a, 'http://schema.org/Person']
@@ -66,7 +66,7 @@ mappings:
       - [a, 'http://purl.org/goodrelations/v1#Location']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(statedisplaynameoflastcontact)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/namus-missings@public/State/$(statedisplaynameoflastcontact)
+    subject: https://data.opendatasoft.com/ld/resources/namus-missings@public/State/$(statedisplaynameoflastcontact)/
   image:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Image']

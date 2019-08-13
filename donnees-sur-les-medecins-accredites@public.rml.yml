@@ -13,7 +13,7 @@ mappings:
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', Region]
       - ['http://dbpedia.org/ontology/departmentCode', $(code_dept)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/donnees-sur-les-medecins-accredites@public/Departement/$(nom_du_departement)
+    subject: https://data.opendatasoft.com/ld/resources/donnees-sur-les-medecins-accredites@public/Departement/$(nom_du_departement)/
   Etablissement:
     predicateobjects:
       - [a, 'https://schema.org/MedicalOrganization']
@@ -39,7 +39,7 @@ mappings:
       - ['http://dbpedia.org/ontology/speciality', $(libelle_long_de_la_specialite_du_medecin)]
       - ['https://schema.org/disambiguatingDescription', 'OA:$(nom_de_l_oa_a_du_medecin) date-accreditation:$(date_d_accreditation_du_medecin)']
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/donnees-sur-les-medecins-accredites@public/Doctor/$(nom_du_medecin)_$(prenom_du_medecin)_$(code_finess)_$(nom_de_l_oa_a_du_medecin)
+    subject: https://data.opendatasoft.com/ld/resources/donnees-sur-les-medecins-accredites@public/Doctor/$(nom_du_medecin)_$(prenom_du_medecin)_$(code_finess)_$(nom_de_l_oa_a_du_medecin)/
   Region:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Region']
@@ -49,6 +49,6 @@ mappings:
       - [a, 'http://rdf.insee.fr/def/geo#Region']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(region_d_exercice)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/donnees-sur-les-medecins-accredites@public/Region/$(region_d_exercice)
+    subject: https://data.opendatasoft.com/ld/resources/donnees-sur-les-medecins-accredites@public/Region/$(region_d_exercice)/
 sources:
   dataset-source: [donnees-sur-les-medecins-accredites@public.json~jsonpath, '$.records.[*].fields']

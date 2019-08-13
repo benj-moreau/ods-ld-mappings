@@ -9,14 +9,14 @@ mappings:
       - ['http://dbpedia.org/ontology/cylinderCount', $(cylinders)]
       - ['https://auto.schema.org/engineDisplacement', $(displ)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/all-vehicles-model@public/Engine/$(engid)
+    subject: https://data.opendatasoft.com/ld/resources/all-vehicles-model@public/Engine/$(engid)/
   make:
     predicateobjects:
       - [a, 'https://schema.org/Brand']
       - [a, 'https://schema.org/Organization']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(make)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/all-vehicles-model@public/Brand/$(make)
+    subject: https://data.opendatasoft.com/ld/resources/all-vehicles-model@public/Brand/$(make)/
   model:
     predicateobjects:
       - [a, 'http://schema.org/Car']

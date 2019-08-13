@@ -9,7 +9,7 @@ mappings:
       - ['https://schema.org/author', Reviewer]
       - ['https://schema.org/itemReviewed', Home]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/airbnb-reviews@public/Review/$(id)
+    subject: https://data.opendatasoft.com/ld/resources/airbnb-reviews@public/Review/$(id)/
   Home:
     predicateobjects:
       - [a, 'http://www.w3.org/2006/vcard/ns#Home']

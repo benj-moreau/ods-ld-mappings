@@ -15,7 +15,7 @@ mappings:
       - ['http://dbpedia.org/ontology/thumbnail', image]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isExpressedBy', image]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/fromagescsv-fromagescsv@public/Cheese/$(fromage)
+    subject: https://data.opendatasoft.com/ld/resources/fromagescsv-fromagescsv@public/Cheese/$(fromage)/
   department:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Department']
@@ -28,7 +28,7 @@ mappings:
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(departement)]
       - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat_long', $(geo_point_2d)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/fromagescsv-fromagescsv@public/Department/$(departement)
+    subject: https://data.opendatasoft.com/ld/resources/fromagescsv-fromagescsv@public/Department/$(departement)/
   image:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Image']

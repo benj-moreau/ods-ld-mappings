@@ -19,7 +19,7 @@ mappings:
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith', Country]
       - ['http://www.ontologydesignpatterns.org/ont/lmm/LMM_L1.owl#hasContext', Country]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/air-bnb-listings@public/City/$(city)
+    subject: https://data.opendatasoft.com/ld/resources/air-bnb-listings@public/City/$(city)/
   Country:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Country']
@@ -36,7 +36,7 @@ mappings:
       - [a, 'http://purl.org/goodrelations/v1#LocationOfSalesOrServiceProvisioning']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(country)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/air-bnb-listings@public/Country/$(country)
+    subject: https://data.opendatasoft.com/ld/resources/air-bnb-listings@public/Country/$(country)/
   Home:
     predicateobjects:
       - [a, 'http://www.w3.org/2006/vcard/ns#Home']
@@ -105,6 +105,6 @@ mappings:
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith', City]
       - ['http://www.ontologydesignpatterns.org/ont/lmm/LMM_L1.owl#hasContext', City]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/air-bnb-listings@public/Neighbourhood/$(neighbourhood)
+    subject: https://data.opendatasoft.com/ld/resources/air-bnb-listings@public/Neighbourhood/$(neighbourhood)/
 sources:
   dataset-source: [air-bnb-listings@public.json~jsonpath, '$.records.[*].fields']

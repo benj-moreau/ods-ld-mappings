@@ -13,7 +13,7 @@ mappings:
       - ['http://dbpedia.org/ontology/city', city]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', city]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Address/$(address1)
+    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Address/$(address1)/
   beer:
     predicateobjects:
       - [a, 'http://rdfs.co/bevon/Beer']
@@ -39,7 +39,7 @@ mappings:
       - ['http://schema.org/category', $(cat_name)]
       - ['http://schema.org/category', $(style_name)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Beer/$(name)
+    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Beer/$(name)/
   brewery:
     predicateobjects:
       - [a, 'http://rdfs.co/bevon/Brewery']
@@ -53,7 +53,7 @@ mappings:
       - ['http://schema.org/address', address]
       - ['http://rdfs.co/juso/address', address]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Brewery/$(name_breweries)
+    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Brewery/$(name_breweries)/
   city:
     predicateobjects:
       - [a, 'http://schema.org/City']
@@ -66,7 +66,7 @@ mappings:
       - ['http://dbpedia.org/ontology/state', state]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', state]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/City/$(city)
+    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/City/$(city)/
   country:
     predicateobjects:
       - [a, 'http://schema.org/Country']
@@ -77,7 +77,7 @@ mappings:
       - [a, 'http://www.wikidata.org/entity/Q6256']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(country)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Country/$(country)
+    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/Country/$(country)/
   state:
     predicateobjects:
       - [a, 'http://www.w3.org/ns/oa#State']
@@ -92,6 +92,6 @@ mappings:
       - ['http://dbpedia.org/ontology/country', country]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', country]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/State/$(state)
+    subject: https://data.opendatasoft.com/ld/resources/open-beer-database@public-us/State/$(state)/
 sources:
   dataset-source: [open-beer-database@public-us.json~jsonpath, '$.records.[*].fields']

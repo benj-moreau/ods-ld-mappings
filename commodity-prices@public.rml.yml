@@ -7,7 +7,7 @@ mappings:
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(commodity)]
       - ['https://w3id.org/seas/price', price]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/commodity-prices@public/Commodity/$(commodity)
+    subject: https://data.opendatasoft.com/ld/resources/commodity-prices@public/Commodity/$(commodity)/
   price:
     predicateobjects:
       - [a, 'https://w3id.org/seas/Price']
@@ -20,6 +20,6 @@ mappings:
       - ['http://schema.org/price', $(price_index)]
       - ['http://dbpedia.org/ontology/price', $(price_index)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/commodity-prices@public/Price/$(commodity)-$(date)
+    subject: https://data.opendatasoft.com/ld/resources/commodity-prices@public/Price/$(commodity)-$(date)/
 sources:
   dataset-source: [commodity-prices@public.json~jsonpath, '$.[*].fields']

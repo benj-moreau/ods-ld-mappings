@@ -17,7 +17,7 @@ mappings:
       - ['http://dbpedia.org/ontology/state', State]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', State]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/City/$(city)
+    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/City/$(city)/
   Country:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Country']
@@ -35,7 +35,7 @@ mappings:
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(country)]
       - ['http://data.archiveshub.ac.uk/def/countryCode', $(country_code)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/Country/$(country)
+    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/Country/$(country)/
   Home:
     predicateobjects:
       - [a, 'http://www.w3.org/2006/vcard/ns#Home']
@@ -126,7 +126,7 @@ mappings:
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith', City]
       - ['http://www.ontologydesignpatterns.org/ont/lmm/LMM_L1.owl#hasContext', City]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/Neighbourhood/$(neighbourhood)
+    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/Neighbourhood/$(neighbourhood)/
   State:
     predicateobjects:
       - [a, 'http://schema.org/State']
@@ -144,7 +144,7 @@ mappings:
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith', Country]
       - ['http://www.ontologydesignpatterns.org/ont/lmm/LMM_L1.owl#hasContext', Country]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/State/$(state)
+    subject: https://data.opendatasoft.com/ld/resources/airbnb-ratings@public/State/$(state)/
   home_picture:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Image']

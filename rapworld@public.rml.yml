@@ -25,7 +25,7 @@ mappings:
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasLocation', field-location_city]
       - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat_long', $(location_coordinates)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/rapworld@public/CityDistrict/$(location_neighborhood)
+    subject: https://data.opendatasoft.com/ld/resources/rapworld@public/CityDistrict/$(location_neighborhood)/
   field-name:
     predicateobjects:
       - [a, 'http://schema.org/Person']
@@ -55,6 +55,6 @@ mappings:
       - ['http://xmlns.com/foaf/0.1/isPrimaryTopicOf', $(bio_url)]
       - ['http://dbpedia.org/ontology/location', field-location_neighborhood]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/rapworld@public/Singer/$(name)
+    subject: https://data.opendatasoft.com/ld/resources/rapworld@public/Singer/$(name)/
 sources:
   dataset-source: [rapworld@public.json~jsonpath, '$.[*].fields']

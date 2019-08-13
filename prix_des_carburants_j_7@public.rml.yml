@@ -19,7 +19,7 @@ mappings:
       - ['https://schema.org/makesOffer', offer-GPLc]
       - ['https://schema.org/makesOffer', offer-gazole]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/GasStation/$(id)
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/GasStation/$(id)/
   Organisation:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Organisation']
@@ -37,7 +37,7 @@ mappings:
       - [a, 'http://purl.org/dc/terms/Agent']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(brand)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Organisation/$(brand)
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Organisation/$(brand)/
   city:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/City']
@@ -51,7 +51,7 @@ mappings:
       - [a, 'http://purl.org/goodrelations/v1#Location']
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(city)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/City/$(city)
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/City/$(city)/
   offer-GPLc:
     predicateobjects:
       - [a, 'https://schema.org/Offer']
@@ -60,7 +60,7 @@ mappings:
       - ['https://schema.org/itemOffered', GPLc]
       - ['https://schema.org/price', $(price_gplc)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-GPLc
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-GPLc/
   offer-e10:
     predicateobjects:
       - [a, 'https://schema.org/Offer']
@@ -69,7 +69,7 @@ mappings:
       - ['https://schema.org/itemOffered', e10]
       - ['https://schema.org/price', $(price_e10)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-e10
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-e10/
   offer-e85:
     predicateobjects:
       - [a, 'https://schema.org/Offer']
@@ -78,7 +78,7 @@ mappings:
       - ['https://schema.org/itemOffered', e85]
       - ['https://schema.org/price', $(price_e85)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-e85
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-e85/
   offer-gazole:
     predicateobjects:
       - [a, 'https://schema.org/Offer']
@@ -87,7 +87,7 @@ mappings:
       - ['https://schema.org/itemOffered', gazole]
       - ['https://schema.org/price', $(price_gazole)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-gazole
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-gazole/
   offer-sp95:
     predicateobjects:
       - [a, 'https://schema.org/Offer']
@@ -96,7 +96,7 @@ mappings:
       - ['https://schema.org/itemOffered', sp95]
       - ['https://schema.org/price', $(price_sp95)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-sp95
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-sp95/
   offer-sp98:
     predicateobjects:
       - [a, 'https://schema.org/Offer']
@@ -105,6 +105,6 @@ mappings:
       - ['https://schema.org/itemOffered', sp98]
       - ['https://schema.org/price', $(price_sp98)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-sp98
+    subject: https://data.opendatasoft.com/ld/resources/prix_des_carburants_j_7@public/Offer/$(id)-sp98/
 sources:
   dataset-source: [prix_des_carburants_j_7@public.json~jsonpath, '$.[*].fields']
