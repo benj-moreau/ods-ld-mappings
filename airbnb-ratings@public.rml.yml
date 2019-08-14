@@ -151,9 +151,7 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Document']
       - [a, 'http://dbpedia.org/ontology/Work']
       - [a, 'http://xmlns.com/foaf/0.1/Document']
-      - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - [a, 'http://schema.org/CreativeWork']
-      - [a, 'http://sw-portal.deri.org/ontologies/swportal#Publication']
     source: dataset-source
     subject: $(picture_url)
   host_picture:
@@ -162,9 +160,7 @@ mappings:
       - [a, 'http://dbpedia.org/ontology/Document']
       - [a, 'http://dbpedia.org/ontology/Work']
       - [a, 'http://xmlns.com/foaf/0.1/Document']
-      - [a, 'http://www.w3.org/2002/07/owl#Thing']
       - [a, 'http://schema.org/CreativeWork']
-      - [a, 'http://sw-portal.deri.org/ontologies/swportal#Publication']
     source: dataset-source
     subject: $(host_picture_url)
 sources:
