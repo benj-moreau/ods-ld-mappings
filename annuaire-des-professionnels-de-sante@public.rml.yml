@@ -22,7 +22,7 @@ mappings:
       - ['https://schema.org/location', Address]
       - ['http://rdfs.co/juso/address', Address]
     source: dataset-source
-    subject: https://data.opendatasoft.com/explore/dataset/annuaire-des-professionnels-de-sante%40public/Doctor/$(nom)-$(code_insee)
+    subject: https://data.opendatasoft.com/ld/resources/annuaire-des-professionnels-de-sante%40public/Doctor/$(nom)-$(code_insee)
   Address:
     predicateobjects:
       - [a, 'http://rdfs.co/juso/Address']
@@ -34,7 +34,7 @@ mappings:
       - ['http://schema.org/postalCode', $(code_postal)]
       - ['http://dbpedia.org/ontology/postalCode', $(code_postal)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/explore/dataset/annuaire-des-professionnels-de-sante%40public/Adress/$(adresse)
+    subject: https://data.opendatasoft.com/ld/resources/annuaire-des-professionnels-de-sante%40public/Adress/$(adresse)
   Commune:
     predicateobjects:
       - [a, 'http://rdf.insee.fr/def/geo#Commune']
@@ -45,7 +45,7 @@ mappings:
       - ['http://dbpedia.org/ontology/department', Departement]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf', Department]
     source: dataset-source
-    subject: https://data.opendatasoft.com/explore/dataset/annuaire-des-professionnels-de-sante%40public/Commune/$(nom_com)
+    subject: https://data.opendatasoft.com/ld/resources/annuaire-des-professionnels-de-sante%40public/Commune/$(nom_com)
   Department:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Department']
