@@ -14,7 +14,7 @@ mappings:
       - ['http://purl.org/eem#hasEPCID',$(nom_epci)]
       - ['http://www.w3.org/2003/01/geo/wgs84_pos#lat_long', $(coordonnees)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/coworking-france@public/EspaceCoworking/$(nom)-$(ville)
+    subject: https://data.opendatasoft.com/ld/resources/coworking-france@public/EspaceCoworking/$(nom)-$(ville)/
   Address:
     predicateobjects:
       - [a, 'http://rdfs.co/juso/Address']
@@ -25,7 +25,7 @@ mappings:
       - ['http://schema.org/postalCode', $(code_postal)]
       - ['http://dbpedia.org/ontology/postalCode', $(code_postal)]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/coworking-france@public/Adress/$(adresse)
+    subject: https://data.opendatasoft.com/ld/resources/coworking-france@public/Adress/$(adresse)/
   Ville:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/City']
@@ -43,7 +43,7 @@ mappings:
       - ['http://dbpedia.org/ontology/department', Department]
       - ['http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isPartOf', Department]
     source: dataset-source
-    subject: https://data.opendatasoft.com/ld/resources/coworking-france@public/City/$(ville)
+    subject: https://data.opendatasoft.com/ld/resources/coworking-france@public/City/$(ville)/
   Department:
     predicateobjects:
       - [a, 'http://dbpedia.org/ontology/Department']
@@ -62,3 +62,5 @@ mappings:
       - ['http://www.w3.org/2000/01/rdf-schema#label', $(nom_reg)]
     source: dataset-source
     subject: https://data.opendatasoft.com/ld/resources/coworking-france@public/Region/$(nom_reg)/
+sources:
+  dataset-source: [commodity-prices-since-1980@public@public.json~jsonpath, '$.[*].fields']
