@@ -1,0 +1,12 @@
+mappings:
+  district:
+    subject: "https://data.opendatasoft.com/ld/resources/georef-portugal-distrito-millesime@public/District/$(dis_name)"
+    predicateobjects:
+      - [a, 'http://purl.org/ontology/places#District']
+      - [a, 'http://schema.org/Place']
+      - ['http://dbpedia.org/ontology/name', $(dis_name)]
+      - ['http://dbpedia.org/ontology/codeDistrict', $(dis_code)]
+      - ['http://www.w3.org/2007/uwa/context/common.owl#countryCode', $(dis_area_code)]
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(dis_name)]
+      - ['http://schema.org/geo', $(geo_point_2d)]
+      - ['https://schema.org/polygon', $(geo_shape)]

@@ -1,0 +1,22 @@
+mappings: 
+  state: 
+    subject: https://data.opendatasoft.com/ld/resources/georef-australia-local-government-area@public/State/$(ste_name)/
+    predicateobjects:
+      - [a, 'http://linkedgeodata.org/ontology/State']
+      - ['https://dbpedia.org/ontology/code', $(ste_code)]
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(ste_name)]
+  local_gov_area:
+    subject: https://data.opendatasoft.com/ld/resources/georef-australia-local-government-area@public/LocalGovernment/$(lga_name)/
+    predicateobjects:
+      - [a, 'http://reference.data.gov.au/def/ont/dataset#LocalGovernmentArea']
+      - ['https://dbpedia.org/ontology/code', $(lga_code)]
+      - ['http://schema.org/geo', $(geo_point_2d)]
+      - ['https://schema.org/polygon', $(geo_shape)]
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(lga_name)]
+      - ['http://dbpedia.org/ontology/state', state]
+
+
+
+
+
+

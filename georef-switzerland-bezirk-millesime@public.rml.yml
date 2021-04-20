@@ -1,0 +1,19 @@
+mappings:
+  kanton:
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/georef-switzerland-bezirk-millesime@public/Kanton/$(kan_name)/
+    predicateobjects:
+      - [a, 'http://dbpedia.org/ontology/Canton']
+      - ['https://dbpedia.org/ontology/code', $(kan_code)]
+      - ['https://dbpedia.org/ontology/iso31661Code', $(bez_area_code)]
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(kan_name)]
+  bezirk:
+    source: dataset-source
+    subject: https://data.opendatasoft.com/ld/resources/georef-switzerland-bezirk-millesime@public/Bezirk/$(bez_name)/
+    predicateobjects:
+      - [a, 'http://purl.org/ontology/places#District']
+      - ['https://dbpedia.org/ontology/code', $(bez_code)]
+      - ['https://dbpedia.org/ontology/canton', kanton]
+      - ['http://www.w3.org/2000/01/rdf-schema#label', $(bez_name)]
+      - ['http://schema.org/geo', $(geo_point_2d)]
+      - ['https://schema.org/polygon', $(geo_shape)]

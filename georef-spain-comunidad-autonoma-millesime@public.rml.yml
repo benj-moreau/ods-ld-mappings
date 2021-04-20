@@ -1,0 +1,19 @@
+mappings:
+    AutonomousCommunity:
+        subject: https://data.opendatasoft.com/ld/resources/georef-spain-comunidad-autonoma-millesime@public/AutonomousCommunity/$(acom_name)/
+        predicateobjects:
+            - [a, 'http://purl.org/ctic/infraestructuras/localizacion#Autonomia']
+            - [a, 'https://dbpedia.org/ontology/Place']
+            - ['https://dbpedia.org/ontology/name', $(acom_name)]
+            - ['https://dbpedia.org/ontology/Surname', $(acom_name_local)]
+            - ['https://dbpedia.org/ontology/code', $(acom_code)]
+            - ['https://dbpedia.org/ontology/communityIsoCode', $(acom_iso3166_code)]
+            - ['https://dbpedia.org/ontology/iso31661Code', $(acom_area_code)]
+            - ['http://www.w3.org/2000/01/rdf-schema#label', $(acom_name)]
+            - ['http://schema.org/geo', $(geo_point_2d)]
+            - ['https://schema.org/polygon', $(geo_shape)]
+
+
+
+
+
